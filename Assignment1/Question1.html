@@ -1,0 +1,97 @@
+<!-- Build a Simple Todo List Using Array
+Add items to array and display dynamically. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+</head>
+<style>
+    h1 {
+        background-color: rgb(237, 233, 228);
+        text-align: center;
+        font-size: 50px;
+        display: inline;
+    }
+
+    .div1 {
+        text-align: center;
+        font-size: 50px;
+        margin: 20px 20px;
+        background-color: azure;
+    }
+
+    .div2 {
+        background-color: azure;
+        margin: 20px 20px;
+    }
+
+    label {
+        border-color: black;
+    }
+
+    input {
+        height: 30px;
+        width: 250px;
+        border-color: black;
+        font-size: large;
+    }
+
+    button {
+        font-weight: bold;
+        font-size: large;
+        height: 35px;
+        width: 150px;
+    }
+
+    button:hover {
+        background-color: lightgreen;
+    }
+
+    ul {
+        /* list-style-position: inside; */
+        width: 300px;
+        margin: 20px auto;
+        text-align: left;
+        font-size: 30px;
+        padding-left: 40px;
+    }
+</style>
+
+<body>
+    <div class="div1">
+        <fieldset>
+            <h1>To Do List</h1>
+            <br>
+            <label for="i1"><mark>Enter Your Work</mark></label>
+            <br>
+            <input id="i1" type="text">
+            <br>
+            <button onclick="addToDo()" type="button">ADD TO LIST</button>
+        </fieldset>
+    </div>
+    <div class="div2">
+        <fieldset>
+            <ul id="ul1">List Of Works To Do</ul>
+        </fieldset>
+    </div>
+    <script>
+        let todo = [];
+        function addToDo() {
+            let work = document.getElementById("i1").value.trim();
+            console.log("Entered function");
+            if (work !== "") {
+                todo.push(work);
+                const item = document.createElement("li");
+                item.textContent = work;
+                document.getElementById("ul1").appendChild(item);
+                document.getElementById("i1").value = "";
+            }
+        }
+    </script>
+</body>
+
+</html>
