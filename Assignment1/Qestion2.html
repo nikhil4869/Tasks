@@ -211,7 +211,8 @@
         const Q6_ele = document.getElementById("q6");
         var avg_marks = students.reduce((t, p) => t + p.marks, 0);
         const avg = document.createElement("li");
-        avg.textContent = avg_marks;
+        var avg_marks1=avg_marks/10;
+        avg.textContent = avg_marks1;
         Q6_ele.appendChild(avg);
 
 
