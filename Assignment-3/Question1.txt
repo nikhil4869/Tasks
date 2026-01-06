@@ -1,0 +1,130 @@
+Assignment-3;
+---------------
+1.Display all employee records.
+Ans: select * from employee;
+--------------------------------
+2.Display only employee ID, name, and department.
+Ans: select emp_id,emp_name,department from employee;
+-------------------------------------------------------
+3.Display employee name and salary for all employees.
+Ans: select emp_name,salary from employee;
+--------------------------------------------------------
+4.Display employees whose salary is greater than 40,000.
+Ans: select emp_name,salary from employee where salary > 40000;
+---------------------------------------------------------------
+5.Display employees whose salary is less than or equal to 35,000.
+Ans: select emp_name,salary from employee where salary <= 35000;
+-------------------------------------------------------------------
+6.Display employees whose salary is exactly 45,000.
+Ans: select emp_name from employee where salary=45000;
+--------------------------------------------------------------------
+7.Display employees who joined after 01-Jan-2022.
+Ans: select emp_name,joining_date from employee where joining_date > date '2022-01-01';
+-----------------------------------------------------------------------------------------
+8.Display employees who joined before 01-Jan-2021.
+Ans: select emp_name,joining_date from employee where joining_date < date '2021-01-01';
+------------------------------------------------------------------------------------------
+9.Display employees whose salary is between 35,000 and 50,000.
+Ans: select emp_name,salary from employee where salary  between 35000 and 50000;
+-------------------------------------------------------------------------------------------
+10.Display employees whose salary is not between 30,000 and 45,000.
+Ans: select emp_name,salary from employee where salary < 30000 and salary > 45000;
+--------------------------------------------------------------------------------------------
+11.Display employees whose joining date is between 01-Jan-2021 and 31-Dec-2022.
+Ans: select emp_name,joining_date from employee where joining_date > date '2021-01-01' and joining_date < date '2022-12-31';
+------------------------------------------------------------------------------------------------------------------------------
+12.Display employees working in IT or HR departments.
+Ans: select emp_name,department from employee where department in ('IT','HR');
+----------------------------------------------------------------------------------------------------------------------------
+13.Display employees working in Chennai, Bangalore, or Hyderabad.
+Ans: select emp_name,location from employee where location in ('Chennai','Bangalore','Hyderabad');
+-----------------------------------------------------------------------------------------------------------------------------
+14.Display employees whose salary is IN (32000, 38000, 40000).
+Ans: select emp_name,salary from employee where salary in (32000,38000,40000);
+----------------------------------------------------------------------------------------------------------------------------
+15.Display employees not working in Mumbai.
+Ans:  SELECT emp_name, department, location FROM employee WHERE location <> 'Mumbai';
+------------------------------------------------------------------------------------------------------------------------------
+16.Display employees whose department is not in IT and HR.
+Ans: select emp_name,department from employee where department not in ('IT','HR');
+----------------------------------------------------------------------------------------------------------------------------
+17.Display employees whose designation is not in Developer and Tester.
+Ans:  select emp_name,designation from employee where designation not in ('Developer','Tester');
+---------------------------------------------------------------------------------------------------------------------------
+18.Display employees whose name starts with ‘A’.
+Ans: select emp_name from employee where emp_name like 'A%';
+---------------------------------------------------------------------------------------------------------------------------
+19.Display employees whose salary is NULL.
+Ans: select emp_name,salary from employee where salary is null;
+-----------------------------------------------------------------------------------------------------------------------------
+20.Display employees whose email is NULL.
+Ans: select emp_name,email from employee where email is null;
+-----------------------------------------------------------------------------------------------------------------------------
+21.Display employees whose salary is NOT NULL.
+Ans: select emp_name,salary from employee where salary is  not null;
+------------------------------------------------------------------------------------------------------------------------------
+22.Display employees whose email is NOT NULL.
+Ans: Display employees whose email is NOT NULL.
+------------------------------------------------------------------------------------------------------------------------------
+23.Display employees whose name ends with ‘i’.
+Ans: select emp_name from employee where emp_name like '%i';
+-------------------------------------------------------------------------------------------------------------------------------
+24.Display employees whose name contains ‘vi’.
+Ans:  select emp_name from employee where emp_name like '%vi%';
+----------------------------------------------------------------------------------------------------------------------------------
+25.Display employees whose email contains ‘@company.com’.
+Ans: select emp_name,email from employee where email like '%@company.com';
+----------------------------------------------------------------------------------------------------------------------------------
+26.Display employees whose designation ends with ‘Engineer’.
+Ans: select emp_name,designation from employee where designation like '%Engineer';
+-----------------------------------------------------------------------------------------------------------------------------------
+27.Display all employees ordered by salary ascending.
+Ans: select emp_name,salary from employee order by salary asc;
+-----------------------------------------------------------------------------------------------------------------------------------
+28.Display employees ordered by department ASC and salary DESC.
+Ans: select emp_name,department,salary from employee order by department asc,salary desc;
+-----------------------------------------------------------------------------------------------------------------------------------
+29.Display employees ordered by location ASC and employee name ASC.
+Ans: select emp_name,location from employee order by location asc,emp_name asc;
+----------------------------------------------------------------------------------------------------------------------------------
+30.Display employees working in IT department AND salary > 45,000.
+Ans: select emp_name,department,salary from employee where department='IT' and salary >45000;
+------------------------------------------------------------------------------------------------------------------------------------
+31.Display employees working in HR OR Sales department.
+Ans: select emp_name,department from employee where department ='HR' or department='Sales Executive';
+---------------------------------------------------------------------------------------------------------------------------------------
+32.Update salary to 50,000 for employees whose salary is NULL.
+Ans: update employee set salary=50000 where salary is null;
+-----------------------------------------------------------------------------------------------------------------------------------------
+33.Increase salary by 5,000 for all IT employees.
+Ans: update employee set salary=salary+5000 where department='IT';
+---------------------------------------------------------------------------------------------------------------------------------------------
+34.Display employees having the same name more than once.
+Ans: select emp_name,count(*) as count from employee group by emp_name having count(*) >1;
+--------------------------------------------------------------------------------------------------------------------------------------------
+35.Display employees having the same salary.
+Ans: select salary,count(*) as count from employee group by salary having count(*) >1;
+------------------------------------------------------------------------------------------------------------------------------------------
+36.Display how employees working in the same department and same location.
+Ans: select department,location,count(*) from employee group by department,location;
+------------------------------------------------------------------------------------------------------------------------------------------
+37.Update location to Hyderabad for employees working in HR.
+Ans: update employee set location='Hyderabad' where department='HR';
+----------------------------------------------------------------------------------------------------------------------------------------
+38.Display employees NOT working in IT department.
+Ans: select emp_name from employee where department != 'IT';
+-------------------------------------------------------------------------------------------------------------------------------------------
+39.Display employees working in IT AND located in Chennai.
+Ans: select emp_name from employee where department in 'IT' and location in 'Chennai';
+--------------------------------------------------------------------------------------------------------------------------------------------
+40.Display employees ordered by salary DESC and joining date ASC.
+Ans: select emp_name,salary from employee order by salary desc,joining_date asc;
+--------------------------------------------------------------------------------------------------------------------------------------------
+41.Display all employees ordered by salary descending.
+Ans: select emp_name,salary from employee order by salary desc;
+---------------------------------------------------------------------------------------------------------------------------------------------
+42.Display all employees ordered by joining date ascending.
+Ans: select emp_name,joining_date from employee order by joining_date asc;
+----------------------------------------------------------------------------------------------------------------------------------------------
+43.Display all employees ordered by employee name alphabetically.
+Ans: select emp_name from employee order by emp_name asc;
