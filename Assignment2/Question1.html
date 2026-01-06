@@ -1,0 +1,47 @@
+<!-- space X lanch details and success status -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space X Details</title>
+</head>
+
+<body>
+    <h1>Lanch Details and info</h1>
+    <button onclick="loaddetails()">Click Me</button>
+    <p id="loadingDetails"></p>
+    <div id="lanchDetails"></div>
+
+    <script>
+        function loaddetails() {
+            const loading = document.getElementById("loadingDetails");
+            const details = document.getElementById("lanchDetails");
+
+            loading.textContent = "Loading...";
+            details.innerHTML = "";
+
+            fetch("https://api.spacexdata.com/v4/latest")
+                .then(function success(response) {
+                    if (!response.ok) {
+                        throw new Error("Failed to Fetch Data");
+                    }
+                    return response.json();
+                })
+                .then(function (data) {
+                    loading.textContent = "";
+                    details.innerHTML = `<h3>Mission Name: ${data.name}</h3>`;
+                })
+                .catch(function (error){
+                    loading.textContent="";
+                    details.innerHTML="Error loading launch data";
+                    console.log("Error:", error);
+                });
+
+        }
+    </script>
+
+</body>
+
+</html>
